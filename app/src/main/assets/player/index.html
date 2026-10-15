@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="color-scheme" content="light dark">
+  <title>妙学 · 课程</title>
+  <link rel="stylesheet" href="katex/katex.min.css">
+  <link rel="stylesheet" href="player.css">
+  <script src="katex/katex.min.js"></script>
+  <script src="katex/auto-render.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <button id="closeBtn" class="icon-btn" aria-label="关闭">✕</button>
+    <div class="progress"><div id="progressFill" class="progress-fill"></div></div>
+    <span id="stepCounter" class="step-counter"></span>
+  </header>
+
+  <main id="stage" class="stage"></main>
+
+  <footer class="footer">
+    <div id="feedback" class="feedback" hidden>
+      <div id="feedbackTitle" class="feedback-title"></div>
+      <div id="feedbackBody" class="feedback-body"></div>
+    </div>
+    <div class="footer-actions">
+      <button id="revealBtn" class="link-btn" hidden>显示答案</button>
+      <button id="primaryBtn" class="primary-btn">继续</button>
+    </div>
+  </footer>
+
+  <script src="widgets.js"></script>
+  <script src="player.js"></script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+{
+ "id": "integrals-2",
+ "title": "微积分基本定理",
+ "outro": "求导与积分互为逆运算——这是整个微积分最漂亮的一个结论。",
+ "steps": [
+  {
+   "blocks": [
+    {
+     "type": "title",
+     "text": "会“生长”的面积"
+    },
+    {
+     "type": "text",
+     "text": "让积分的右端点变成变量：$$A(x) = \\int_0^x f(t)\\,dt$$ 它是从 $0$ 到 $x$ 的面积，随 $x$ 增大而“生长”。"
+    },
+    {
+     "type": "widget",
+     "widget": "accumulate",
+     "f": "1+0.5*x",
+     "F": "x+0.25*x*x",
+     "a": 0,
+     "start": 1,
+     "view": {
+      "xmin": -0.3,
+      "xmax": 4,
+      "ymin": -0.3,
+      "ymax": 3.3
+     },
+     "aview": {
+      "xmin": -0.3,
+      "xmax": 4,
+      "ymin": -0.5,
+      "ymax": 8.5
+     }
+    },
+    {
+     "type": "choice",
+     "prompt": "当 $f(x)$ 越大时，$A(x)$ 增长得……",
+     "options": [
+      "越慢",
+      "越快",
+      "速度不变"
+     ],
+     "answer": 1,
+     "explain": "右端点每向右挪一点点 $\\Delta x$，新增的面积约等于一条细长矩形 $f(x)\\cdot\\Delta x$。$f(x)$ 越高，增长越快。"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "text",
+     "text": "换句话说，$A(x)$ 的**增长速度**（即它的导数）就是 $f(x)$："
+    },
+    {
+     "type": "callout",
+     "text": "**微积分基本定理（第一部分）：** $$\\frac{d}{dx}\\int_0^x f(t)\\,dt = f(x)$$"
+    },
+    {
+     "type": "widget",
+     "widget": "accumulate",
+     "f": "1+0.5*x",
+     "F": "x+0.25*x*x",
+     "a": 0,
+     "start": 2,
+     "showSlope": true,
+     "view": {
+      "xmin": -0.3,
+      "xmax": 4,
+      "ymin": -0.3,
+      "ymax": 3.3
+     },
+     "aview": {
+      "xmin": -0.3,
+      "xmax": 4,
+      "ymin": -0.5,
+      "ymax": 8.5
+     }
+    },
+    {
+     "type": "number",
+     "prompt": "在 $x = 2$ 处，$A(x)$ 曲线的切线斜率是多少？（这里 $f(x) = 1 + 0.5x$）",
+     "answer": 2,
+     "explain": "斜率 $= A'(2) = f(2) = 1 + 0.5\\times 2 = 2$。下图中绿色虚线的斜率始终等于上图中橙色竖线的高度。"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "title",
+     "text": "用反导数算面积"
+    },
+    {
+     "type": "text",
+     "text": "如果 $F'(x) = f(x)$，我们称 $F$ 是 $f$ 的**反导数**（原函数）。"
+    },
+    {
+     "type": "callout",
+     "text": "**基本定理（第二部分）：** $$\\int_a^b f(x)\\,dx = F(b) - F(a)$$ 不用再画无数个矩形，只要找到反导数！"
+    },
+    {
+     "type": "choice",
+     "prompt": "哪个函数的导数是 $x^2$？",
+     "options": [
+      "$2x$",
+      "$\\tfrac13 x^3$",
+      "$x^3$",
+      "$\\tfrac12 x^2$"
+     ],
+     "answer": 1,
+     "explain": "$\\left(\\tfrac13 x^3\\right)' = \\tfrac13\\cdot 3x^2 = x^2$。✓",
+     "hint": "用幂法则倒推：什么函数求导后指数会变成 2？"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "text",
+     "text": "验证上一课的结果：$$\\int_0^1 x^2\\,dx = \\tfrac13\\cdot 1^3 - \\tfrac13\\cdot 0^3 = \\tfrac13$$ 和黎曼和逼近的结果完全一致！"
+    },
+    {
+     "type": "number",
+     "prompt": "$\\displaystyle\\int_0^2 x^2\\,dx = \\;?$（可以写成分数）",
+     "answer": 2.6666666666666665,
+     "explain": "$\\tfrac13\\cdot 2^3 - 0 = \\tfrac83 \\approx 2.667$。",
+     "answerText": "8/3",
+     "tolerance": 0.005
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "text",
+     "text": "最后，回到第一个问题：速度 $v(t) = 3t^2$ 米/秒，从 $t=0$ 到 $t=2$ 秒走了多远？"
+    },
+    {
+     "type": "number",
+     "prompt": "走过的距离是多少米？",
+     "answer": 8,
+     "explain": "$3t^2$ 的反导数是 $t^3$，距离 $= 2^3 - 0^3 = 8$ 米。",
+     "hint": "$3t^2$ 是谁的导数？"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "title",
+     "text": "回顾"
+    },
+    {
+     "type": "text",
+     "text": "• **极限**：描述“无限接近”。\n• **导数**：割线斜率的极限，表示瞬时变化率。\n• **积分**：矩形面积和的极限，表示累积量。\n• **基本定理**：两者互为逆运算。"
+    },
+    {
+     "type": "callout",
+     "text": "恭喜你完成了微积分入门！"
+    }
+   ]
+  }
+ ]
+}

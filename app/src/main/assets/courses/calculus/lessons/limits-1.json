@@ -1,0 +1,271 @@
+{
+ "id": "limits-1",
+ "title": "无限接近",
+ "outro": "你已经掌握了极限最核心的直觉：不看那一点，只看它附近。",
+ "steps": [
+  {
+   "blocks": [
+    {
+     "type": "title",
+     "text": "一步步走向墙壁"
+    },
+    {
+     "type": "text",
+     "text": "你离墙 **1 米**。规则只有一条：每一步，走完**剩余距离的一半**。"
+    },
+    {
+     "type": "widget",
+     "widget": "halving",
+     "goal": {
+      "prompt": "一直走，直到离墙不到 **1 毫米**（0.001 米）。",
+      "check": "s.remaining < 0.001",
+      "success": "一共走了 10 步：剩余 $\\left(\\tfrac12\\right)^{10} = \\tfrac1{1024}$ 米，已经不到 1 毫米了。",
+      "hint": "多按几次「走一步」，看看剩余距离每次怎么变化。"
+     }
+    },
+    {
+     "type": "pause"
+    },
+    {
+     "type": "text",
+     "text": "再多走几步试试。剩余距离会变成 0 吗？"
+    },
+    {
+     "type": "choice",
+     "prompt": "如果一直这样走下去，会发生什么？",
+     "options": [
+      "某一步恰好碰到墙",
+      "永远碰不到墙，但可以离墙任意近",
+      "会停在离墙某个固定的距离"
+     ],
+     "answer": 1,
+     "explain": "每一步之后都还剩下一半，所以永远不会是 0；但走得足够多，剩余距离可以比任何正数都小。"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "title",
+     "text": "极限：描述“趋向”"
+    },
+    {
+     "type": "text",
+     "text": "剩余距离依次是 $1,\\ \\tfrac12,\\ \\tfrac14,\\ \\tfrac18,\\ \\dots$ 它永远是正数，却可以**任意接近** 0。"
+    },
+    {
+     "type": "pause"
+    },
+    {
+     "type": "callout",
+     "text": "数学家说：这串数的**极限**是 $0$，记作 $$\\lim_{n\\to\\infty}\\left(\\tfrac12\\right)^n = 0$$"
+    },
+    {
+     "type": "pause"
+    },
+    {
+     "type": "text",
+     "text": "注意：极限关心的是**趋向哪里**，而不是**能不能到达**。这个想法同样可以用在函数上。"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "title",
+     "text": "一个有“洞”的函数"
+    },
+    {
+     "type": "text",
+     "text": "看这个函数：$$f(x) = \\frac{x^2 - 1}{x - 1}$$ 把 $x = 1$ 代进去，会得到 $\\frac00$——没有意义。所以图像在 $x = 1$ 处有一个**洞**（空心圆）。"
+    },
+    {
+     "type": "pause"
+    },
+    {
+     "type": "text",
+     "text": "$f(1)$ 不存在，但我们可以问：$x$ **靠近** 1 时，$f(x)$ 靠近什么？"
+    },
+    {
+     "type": "widget",
+     "widget": "approach",
+     "f": "(x*x-1)/(x-1)",
+     "a": 1,
+     "limit": 2,
+     "hole": true,
+     "maxDistance": 1,
+     "view": {
+      "xmin": -1,
+      "xmax": 3,
+      "ymin": -0.5,
+      "ymax": 4.5
+     },
+     "goal": {
+      "prompt": "从**左侧**把 $x$ 拖到离 1 不到 0.01 的地方。",
+      "check": "s.side == 'left' && s.dist < 0.01",
+      "success": "$x = 0.99$ 时 $f(x) = 1.99$，越来越接近洞的高度。",
+      "hint": "拖动滑块往右，或直接在图上拖动橙色点。"
+     }
+    },
+    {
+     "type": "pause"
+    },
+    {
+     "type": "text",
+     "text": "现在点「从右侧」，再从右边靠近 1，观察表格。"
+    },
+    {
+     "type": "number",
+     "prompt": "无论从左还是从右，$x \\to 1$ 时 $f(x)$ 都接近哪个数？",
+     "answer": 2,
+     "explain": "两侧都趋近 $2$。我们写作 $$\\lim_{x\\to 1}\\frac{x^2-1}{x-1} = 2$$",
+     "hint": "看看表格里最接近 1 的那一列。"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "title",
+     "text": "为什么恰好是 2？"
+    },
+    {
+     "type": "example",
+     "title": "第 1 步 · 因式分解",
+     "text": "分子是平方差：$x^2 - 1 = (x-1)(x+1)$"
+    },
+    {
+     "type": "pause"
+    },
+    {
+     "type": "example",
+     "title": "第 2 步 · 约分",
+     "text": "只要 $x \\ne 1$，就可以约去 $(x-1)$：$$f(x) = \\frac{(x-1)(x+1)}{x-1} = x + 1$$"
+    },
+    {
+     "type": "pause"
+    },
+    {
+     "type": "example",
+     "title": "第 3 步 · 看趋向",
+     "text": "$x \\to 1$ 时，$x + 1 \\to 2$。所以极限是 $2$。"
+    },
+    {
+     "type": "pause"
+    },
+    {
+     "type": "text",
+     "text": "原来 $f$ 的图像就是直线 $y = x + 1$，只是在 $x = 1$ 处挖掉了一个点。"
+    },
+    {
+     "type": "callout",
+     "text": "**极限只关心附近，不关心那一点本身。**"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "title",
+     "text": "轮到你了"
+    },
+    {
+     "type": "text",
+     "text": "求 $$\\lim_{x\\to 3}\\frac{x^2 - 9}{x - 3}$$ 按刚才的三步来。"
+    },
+    {
+     "type": "choice",
+     "prompt": "第 1 步：$x^2 - 9$ 可以分解成？",
+     "options": [
+      "$(x-3)(x+3)$",
+      "$(x-3)^2$",
+      "$(x-9)(x+1)$"
+     ],
+     "answer": 0,
+     "explain": "平方差公式：$a^2 - b^2 = (a-b)(a+b)$，这里 $b = 3$。"
+    },
+    {
+     "type": "pause"
+    },
+    {
+     "type": "choice",
+     "prompt": "第 2 步：约分之后，函数变成？",
+     "options": [
+      "$x - 3$",
+      "$x + 3$",
+      "$x + 9$"
+     ],
+     "answer": 1,
+     "explain": "$\\frac{(x-3)(x+3)}{x-3} = x + 3$（$x \\ne 3$）。"
+    },
+    {
+     "type": "pause"
+    },
+    {
+     "type": "number",
+     "prompt": "第 3 步：$\\displaystyle\\lim_{x\\to 3}\\frac{x^2-9}{x-3} = \\;?$",
+     "answer": 6,
+     "explain": "$x + 3 \\to 3 + 3 = 6$。"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "title",
+     "text": "自己试试"
+    },
+    {
+     "type": "number",
+     "prompt": "$\\displaystyle\\lim_{x\\to 1}\\frac{x^2 + x - 2}{x - 1} = \\;?$",
+     "answer": 3,
+     "explain": "$x^2 + x - 2 = (x-1)(x+2)$，约分得 $x + 2 \\to 3$。",
+     "hint": "找两个数，乘积是 $-2$，和是 $1$。"
+    },
+    {
+     "type": "pause"
+    },
+    {
+     "type": "number",
+     "prompt": "$\\displaystyle\\lim_{x\\to -2}\\frac{x^2 - 4}{x + 2} = \\;?$",
+     "answer": -4,
+     "explain": "$x^2 - 4 = (x+2)(x-2)$，约分得 $x - 2 \\to -2 - 2 = -4$。",
+     "hint": "注意这次 x 趋向 −2，约去的是 (x+2)。"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "title",
+     "text": "概念检查"
+    },
+    {
+     "type": "choice",
+     "prompt": "如果 $h(2)$ 没有定义，那么 $\\lim_{x\\to 2} h(x)$……",
+     "options": [
+      "一定不存在",
+      "一定等于 0",
+      "仍然可能存在"
+     ],
+     "answer": 2,
+     "explain": "极限只看附近的行为。本课的 $f(x)$ 就是例子：$f(1)$ 没定义，极限却是 2。"
+    },
+    {
+     "type": "pause"
+    },
+    {
+     "type": "choice",
+     "prompt": "某个函数满足 $g(1) = 5$，但当 $x \\to 1$ 时 $g(x)$ 越来越接近 $2$。那么 $\\lim_{x\\to 1} g(x)$ 等于？",
+     "options": [
+      "5",
+      "2",
+      "不存在"
+     ],
+     "answer": 1,
+     "explain": "极限只看趋向，不看那一点的取值。$g(1) = 5$ 只是一个“跳开”的点，极限仍是 $2$。"
+    }
+   ]
+  }
+ ]
+}

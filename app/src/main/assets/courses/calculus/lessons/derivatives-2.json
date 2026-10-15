@@ -1,0 +1,154 @@
+{
+ "id": "derivatives-2",
+ "title": "导数函数与幂法则",
+ "outro": "有了幂法则，求多项式的导数只需要几秒钟。",
+ "steps": [
+  {
+   "blocks": [
+    {
+     "type": "title",
+     "text": "每一点都有一个斜率"
+    },
+    {
+     "type": "text",
+     "text": "在每个 $x$ 处都可以算出切线斜率 $f'(x)$。把这些斜率画出来，就得到一个新函数——**导数函数**。"
+    },
+    {
+     "type": "text",
+     "text": "拖动下面的切点，看看 $f(x) = x^2$ 在各处的斜率被记录成了什么形状。"
+    },
+    {
+     "type": "widget",
+     "widget": "trace",
+     "f": "x*x",
+     "df": "2*x",
+     "start": -1.8,
+     "view": {
+      "xmin": -2,
+      "xmax": 2,
+      "ymin": -0.5,
+      "ymax": 4
+     },
+     "dview": {
+      "xmin": -2,
+      "xmax": 2,
+      "ymin": -4.5,
+      "ymax": 4.5
+     }
+    },
+    {
+     "type": "choice",
+     "prompt": "斜率点连起来是什么图形？",
+     "options": [
+      "一条水平线",
+      "一条过原点的直线",
+      "一条抛物线"
+     ],
+     "answer": 1,
+     "explain": "它是直线 $y = 2x$。也就是说 $(x^2)' = 2x$。"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "title",
+     "text": "寻找规律"
+    },
+    {
+     "type": "text",
+     "text": "用定义可以算出："
+    },
+    {
+     "type": "text",
+     "text": "$$(x)' = 1,\\qquad (x^2)' = 2x,\\qquad (x^3)' = 3x^2$$"
+    },
+    {
+     "type": "choice",
+     "prompt": "猜一猜：$(x^4)'$ 是什么？",
+     "options": [
+      "$4x^3$",
+      "$x^3$",
+      "$4x^4$",
+      "$3x^4$"
+     ],
+     "answer": 0,
+     "explain": "规律是：**指数拿下来作系数，指数减一。**"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "callout",
+     "text": "**幂法则：** $$(x^n)' = n\\,x^{n-1}$$ 另外，常数的导数为 $0$，并且 $(c\\,f)' = c\\,f'$，$(f + g)' = f' + g'$。"
+    },
+    {
+     "type": "text",
+     "text": "例如：$(3x^2 + 5x - 7)' = 3\\cdot 2x + 5 - 0 = 6x + 5$。"
+    },
+    {
+     "type": "number",
+     "prompt": "$f(x) = x^3$，求 $f'(2)$。",
+     "answer": 12,
+     "explain": "$f'(x) = 3x^2$，所以 $f'(2) = 3\\cdot 4 = 12$。"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "number",
+     "prompt": "$g(x) = 4x^3 - 2x^2 + x$，求 $g'(1)$。",
+     "answer": 9,
+     "explain": "$g'(x) = 12x^2 - 4x + 1$，$g'(1) = 12 - 4 + 1 = 9$。",
+     "hint": "逐项求导：每一项分别用幂法则。"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "title",
+     "text": "看图读导数"
+    },
+    {
+     "type": "text",
+     "text": "下面是 $f(x) = x^3 - 3x$。移动切点，观察斜率什么时候为正、为负、为零。"
+    },
+    {
+     "type": "widget",
+     "widget": "trace",
+     "f": "x*x*x-3*x",
+     "df": "3*x*x-3",
+     "start": -2.2,
+     "revealDerivative": false,
+     "view": {
+      "xmin": -2.5,
+      "xmax": 2.5,
+      "ymin": -4,
+      "ymax": 4
+     },
+     "dview": {
+      "xmin": -2.5,
+      "xmax": 2.5,
+      "ymin": -4,
+      "ymax": 14
+     }
+    },
+    {
+     "type": "choice",
+     "prompt": "在哪些 $x$ 处切线是**水平**的？",
+     "options": [
+      "$x = 0$",
+      "$x = \\pm 1$",
+      "$x = \\pm\\sqrt3$",
+      "$x = \\pm 3$"
+     ],
+     "answer": 1,
+     "explain": "$f'(x) = 3x^2 - 3 = 0 \\Rightarrow x = \\pm 1$。这两点恰好是图像的“山顶”和“谷底”。"
+    }
+   ]
+  }
+ ]
+}

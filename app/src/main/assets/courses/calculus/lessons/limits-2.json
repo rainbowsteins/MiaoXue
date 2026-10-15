@@ -1,0 +1,141 @@
+{
+ "id": "limits-2",
+ "title": "计算极限",
+ "outro": "代入、约分、观察——三种工具已经能解决很多极限了。",
+ "steps": [
+  {
+   "blocks": [
+    {
+     "type": "title",
+     "text": "最简单的情况：直接代入"
+    },
+    {
+     "type": "text",
+     "text": "对于多项式这样“没有断点”的函数，极限就等于函数值。例如 $$\\lim_{x\\to 2}(x^2 + 3x) = 2^2 + 3\\cdot 2 = 10$$"
+    },
+    {
+     "type": "number",
+     "prompt": "$\\displaystyle\\lim_{x\\to -1}(2x^2 - x + 4) = \\;?$",
+     "answer": 7,
+     "explain": "$2\\cdot(-1)^2 - (-1) + 4 = 2 + 1 + 4 = 7$。",
+     "hint": "注意 $(-1)^2 = 1$，以及减去 $-1$ 等于加 1。"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "text",
+     "text": "这种性质叫**连续**：函数图像在这一点没有断开、没有跳跃、没有洞。"
+    },
+    {
+     "type": "callout",
+     "text": "若 $f$ 在 $a$ 处连续，则 $\\lim_{x\\to a} f(x) = f(a)$。多项式、$\\sin x$、$\\cos x$、$e^x$ 在每一点都连续。"
+    },
+    {
+     "type": "choice",
+     "prompt": "上一课的 $\\dfrac{x^2-1}{x-1}$ 在 $x = 1$ 处连续吗？",
+     "options": [
+      "连续",
+      "不连续"
+     ],
+     "answer": 1,
+     "explain": "它在 $x=1$ 处没有定义（有个洞），所以不连续——这也正是不能直接代入的原因。"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "title",
+     "text": "遇到 0/0：先化简"
+    },
+    {
+     "type": "text",
+     "text": "直接代入得到 $\\frac00$ 时，说明还需要多做一步。常见的办法是**因式分解后约分**。"
+    },
+    {
+     "type": "text",
+     "text": "例如：$$\\lim_{x\\to 2}\\frac{x^2 - 4}{x - 2} = \\lim_{x\\to 2}(x+2) = 4$$"
+    },
+    {
+     "type": "number",
+     "prompt": "$\\displaystyle\\lim_{x\\to 0}\\frac{x^2 + 5x}{x} = \\;?$",
+     "answer": 5,
+     "explain": "分子提出 $x$：$\\frac{x(x+5)}{x} = x + 5$，极限是 $0 + 5 = 5$。",
+     "hint": "分子的两项都含有 $x$。"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "number",
+     "prompt": "$\\displaystyle\\lim_{h\\to 0}\\frac{(3+h)^2 - 9}{h} = \\;?$",
+     "answer": 6,
+     "explain": "展开：$(3+h)^2 - 9 = 6h + h^2$，除以 $h$ 得 $6 + h$，当 $h\\to 0$ 时趋近 $6$。\n\n这种形式会在下一章“导数”中反复出现！",
+     "hint": "先展开 $(3+h)^2 = 9 + 6h + h^2$。"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "title",
+     "text": "一个著名的极限"
+    },
+    {
+     "type": "text",
+     "text": "有时候没法化简，就只能观察。来看 $$\\frac{\\sin x}{x}$$ 当 $x\\to 0$ 时会怎样（$x$ 用弧度）。"
+    },
+    {
+     "type": "widget",
+     "widget": "approach",
+     "f": "sin(x)/x",
+     "a": 0,
+     "limit": 1,
+     "hole": true,
+     "maxDistance": 2,
+     "name": "\\tfrac{\\sin x}{x}",
+     "view": {
+      "xmin": -7,
+      "xmax": 7,
+      "ymin": -0.5,
+      "ymax": 1.4
+     }
+    },
+    {
+     "type": "number",
+     "prompt": "$\\displaystyle\\lim_{x\\to 0}\\frac{\\sin x}{x}$ 是多少？",
+     "answer": 1,
+     "explain": "它趋近 $1$。这说明当 $x$ 很小时，$\\sin x \\approx x$——工程和物理中常用这个近似。"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "title",
+     "text": "极限也可能不存在"
+    },
+    {
+     "type": "text",
+     "text": "考虑 $\\dfrac{|x|}{x}$：当 $x > 0$ 时等于 $1$，当 $x < 0$ 时等于 $-1$。"
+    },
+    {
+     "type": "choice",
+     "prompt": "$\\displaystyle\\lim_{x\\to 0}\\frac{|x|}{x}$ 是多少？",
+     "options": [
+      "1",
+      "-1",
+      "0",
+      "不存在"
+     ],
+     "answer": 3,
+     "explain": "从右侧趋近 $1$，从左侧趋近 $-1$。两侧不一致，所以极限**不存在**。",
+     "hint": "分别想想 x 从左侧和从右侧接近 0 的情况。"
+    }
+   ]
+  }
+ ]
+}

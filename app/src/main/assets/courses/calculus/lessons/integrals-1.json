@@ -1,0 +1,136 @@
+{
+ "id": "integrals-1",
+ "title": "面积与黎曼和",
+ "outro": "用越来越细的矩形逼近面积——这就是定积分。",
+ "steps": [
+  {
+   "blocks": [
+    {
+     "type": "title",
+     "text": "从速度到距离"
+    },
+    {
+     "type": "text",
+     "text": "一辆车以 **12 米/秒** 匀速行驶了 5 秒。"
+    },
+    {
+     "type": "number",
+     "prompt": "它走了多少米？",
+     "answer": 60,
+     "explain": "$12 \\times 5 = 60$ 米。在“速度–时间”图上，这正是一个 $5 \\times 12$ 矩形的**面积**。"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "text",
+     "text": "如果速度在变化呢？比如 $v(t) = t^2$。速度图不再是水平线，面积也不再是矩形。"
+    },
+    {
+     "type": "text",
+     "text": "想法：把时间切成小段，每一小段里把速度当作常数，用矩形近似。"
+    },
+    {
+     "type": "widget",
+     "widget": "riemann",
+     "f": "x*x",
+     "a": 0,
+     "b": 1,
+     "n": 4,
+     "mode": "left",
+     "exact": 0.3333333333333333,
+     "showExact": false,
+     "maxN": 100,
+     "view": {
+      "xmin": -0.1,
+      "xmax": 1.15,
+      "ymin": -0.05,
+      "ymax": 1.1
+     }
+    },
+    {
+     "type": "choice",
+     "prompt": "矩形越多，矩形面积之和会怎样？",
+     "options": [
+      "越来越偏离真实面积",
+      "越来越接近某个固定值",
+      "一直不变"
+     ],
+     "answer": 1,
+     "explain": "矩形越窄，与曲线之间的缝隙越小，面积和就越接近曲线下方的真实面积。"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "text",
+     "text": "把 $n$ 拖到最大，或切换“左端点 / 右端点 / 中点”，观察面积和趋向的值。"
+    },
+    {
+     "type": "widget",
+     "widget": "riemann",
+     "f": "x*x",
+     "a": 0,
+     "b": 1,
+     "n": 10,
+     "mode": "right",
+     "exact": 0.3333333333333333,
+     "showExact": false,
+     "maxN": 200,
+     "view": {
+      "xmin": -0.1,
+      "xmax": 1.15,
+      "ymin": -0.05,
+      "ymax": 1.1
+     }
+    },
+    {
+     "type": "number",
+     "prompt": "$y = x^2$ 在 $0$ 到 $1$ 之间、$x$ 轴上方的面积是多少？（可以写成分数）",
+     "answer": 0.3333333333333333,
+     "explain": "面积是 $\\tfrac13 \\approx 0.3333$。",
+     "hint": "n 很大时，三种方法的结果都接近同一个数。它是一个简单的分数。",
+     "answerText": "1/3",
+     "tolerance": 0.002
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "callout",
+     "text": "**定积分：** $$\\int_a^b f(x)\\,dx = \\lim_{n\\to\\infty}\\sum_{i=1}^{n} f(x_i)\\,\\Delta x$$ 符号 $\\int$ 是拉长的 S，代表“求和（Sum）”；$dx$ 代表无限细的宽度。"
+    },
+    {
+     "type": "choice",
+     "prompt": "$\\displaystyle\\int_0^1 x^2\\,dx$ 表示什么？",
+     "options": [
+      "$x^2$ 在 $x = 1$ 处的斜率",
+      "$y = x^2$ 在 $[0,1]$ 上与 $x$ 轴之间的面积",
+      "$x^2$ 的最大值"
+     ],
+     "answer": 1,
+     "explain": "定积分就是“曲线下的面积”（在 $x$ 轴下方的部分算负值）。"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "text",
+     "text": "在 $x$ 轴下方的面积算作**负数**。"
+    },
+    {
+     "type": "number",
+     "prompt": "$\\displaystyle\\int_0^4 (x - 2)\\,dx = \\;?$",
+     "answer": 0,
+     "explain": "$[0,2]$ 上是一个面积为 $2$ 的三角形，在 $x$ 轴下方，记为 $-2$；$[2,4]$ 上面积为 $+2$。合计 $0$。",
+     "hint": "画出直线 $y = x - 2$，看看它和 $x$ 轴围成的两个三角形。",
+     "tolerance": 1e-06
+    }
+   ]
+  }
+ ]
+}

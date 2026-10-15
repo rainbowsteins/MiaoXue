@@ -1,0 +1,115 @@
+{
+ "id": "derivatives-3",
+ "title": "导数的应用：最优化",
+ "outro": "求最大、最小值——导数最常见的用途之一。",
+ "steps": [
+  {
+   "blocks": [
+    {
+     "type": "title",
+     "text": "放大看曲线"
+    },
+    {
+     "type": "text",
+     "text": "为什么切线能代表曲线的方向？把光滑曲线放大足够多倍，它看起来就像一条直线。"
+    },
+    {
+     "type": "widget",
+     "widget": "zoom",
+     "f": "sin(2*x)+0.3*x*x",
+     "a": 0.6,
+     "showTangent": true,
+     "tangentSlope": 1.0847155089533471,
+     "view": {
+      "xmin": -2.4,
+      "xmax": 3.6,
+      "ymin": -2.5,
+      "ymax": 3
+     }
+    },
+    {
+     "type": "callout",
+     "text": "这条“放大后看到的直线”就是切线。导数告诉我们曲线在这一点附近**往哪个方向走、走得多快**。"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "title",
+     "text": "山顶的斜率"
+    },
+    {
+     "type": "text",
+     "text": "在一段光滑曲线的最高点（山顶），曲线不再上升，也还没开始下降。"
+    },
+    {
+     "type": "choice",
+     "prompt": "在光滑曲线的山顶或谷底，导数等于多少？",
+     "options": [
+      "正数",
+      "零",
+      "负数",
+      "无法确定"
+     ],
+     "answer": 1,
+     "explain": "切线是水平的，所以 $f'(x) = 0$。**找最值的第一步：解方程 $f'(x) = 0$。**"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "title",
+     "text": "围栏问题"
+    },
+    {
+     "type": "text",
+     "text": "你有 **20 米**长的篱笆，要围成一个矩形菜园。宽为 $w$，长为 $\\ell$，则 $2w + 2\\ell = 20$。"
+    },
+    {
+     "type": "text",
+     "text": "拖动滑块，找到让面积最大的宽度。"
+    },
+    {
+     "type": "widget",
+     "widget": "fence",
+     "perimeter": 20,
+     "start": 2
+    },
+    {
+     "type": "number",
+     "prompt": "面积最大时，宽 $w$ 是多少米？",
+     "answer": 5,
+     "explain": "$\\ell = 10 - w$，面积 $A(w) = w(10 - w) = 10w - w^2$。$A'(w) = 10 - 2w = 0 \\Rightarrow w = 5$。",
+     "hint": "观察下方面积图的最高点。"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "number",
+     "prompt": "最大面积是多少平方米？",
+     "answer": 25,
+     "explain": "$A(5) = 5 \\times 5 = 25$ 平方米。最优的矩形是一个**正方形**。"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "text",
+     "text": "再来一个：把一个数 $x$ 和它的“缺口” $8 - x$ 相乘，得到 $P(x) = x(8 - x)$。"
+    },
+    {
+     "type": "number",
+     "prompt": "$P(x)$ 的最大值是多少？",
+     "answer": 16,
+     "explain": "$P'(x) = 8 - 2x = 0 \\Rightarrow x = 4$，$P(4) = 4 \\times 4 = 16$。",
+     "hint": "先求 $P'(x)$，令它等于 0。"
+    }
+   ]
+  }
+ ]
+}

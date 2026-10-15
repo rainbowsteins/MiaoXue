@@ -1,0 +1,71 @@
+{
+ "id": "calculus",
+ "title": "微积分入门",
+ "subtitle": "从极限到积分，用互动图像理解变化与累积",
+ "color": "#3B5BDB",
+ "chapters": [
+  {
+   "id": "limits",
+   "title": "第一章 · 极限",
+   "description": "无限接近的数学",
+   "lessons": [
+    {
+     "id": "limits-1",
+     "title": "无限接近",
+     "steps": 7,
+     "questions": 9
+    },
+    {
+     "id": "limits-2",
+     "title": "计算极限",
+     "steps": 6,
+     "questions": 6
+    }
+   ]
+  },
+  {
+   "id": "derivatives",
+   "title": "第二章 · 导数",
+   "description": "变化有多快",
+   "lessons": [
+    {
+     "id": "derivatives-1",
+     "title": "瞬时变化率",
+     "steps": 6,
+     "questions": 5
+    },
+    {
+     "id": "derivatives-2",
+     "title": "导数函数与幂法则",
+     "steps": 5,
+     "questions": 5
+    },
+    {
+     "id": "derivatives-3",
+     "title": "导数的应用：最优化",
+     "steps": 5,
+     "questions": 4
+    }
+   ]
+  },
+  {
+   "id": "integrals",
+   "title": "第三章 · 积分",
+   "description": "累积有多少",
+   "lessons": [
+    {
+     "id": "integrals-1",
+     "title": "面积与黎曼和",
+     "steps": 5,
+     "questions": 5
+    },
+    {
+     "id": "integrals-2",
+     "title": "微积分基本定理",
+     "steps": 6,
+     "questions": 5
+    }
+   ]
+  }
+ ]
+}
